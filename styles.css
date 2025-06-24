@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f7f1;
+  color: #333;
+}
+
+nav {
+  background: #1b3a2b;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background: #1b3a2b;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero button:hover {
+  background: #145d3d;
+}
+
+.service-section {
+  padding: 3rem 2rem;
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-left: 5px solid #1b3a2b;
+}
+
+.service-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1b3a2b;
+}
+
+footer {
+  background: #1b3a2b;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+.caption h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.caption p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.caption button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  background: #1b3a2b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.caption button:hover {
+  background: #145d3d;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 100%;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+
+/* not currently in use */
+.parallax {
+/*positioning details for the text*/
+  position: relative;  /* This allows positioning child elements if necessary */
+  background-image: url('logo2d.jpg');  /* Your background image */
+  background-size: cover;  /* Cover the entire section */
+  background-position: center;  /* Center the image */
+  height: 100vh;  /* Full viewport height */
+  display: flex;  /* Use Flexbox for centering */
+  justify-content: center;  /* Center horizontally */
+  align-items: center;  /* Center vertically */
+  text-align: center;  /* Center text */
+
+    background-image: url('logo2d.jpg'); /* Replace with your image URL */
+    height: 500px; /* Height of the parallax section */
+    background-attachment: fixed; /* Fixed position for parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the entire section */
+} 
+
+
+.card-container {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  gap: 20px;
+}
+
+/* Card styles */
+.card {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel img {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .caption {
+    font-size: 0.85rem;
+    width: 90%;
+    transform: translateY(-190px);
+   
+  }
+  .prev, .next {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
