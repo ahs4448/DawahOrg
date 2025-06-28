@@ -3,7 +3,15 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.1" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.1" /> -->
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Baskervville+SC&family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <title>Dawah Center for Human Development</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -11,7 +19,7 @@
 <body>
   <header>
     <nav>
-      <div class="logo">🌙 Dawah Center for Human Development</div>
+      <div class="logo">🌙 D C H D</div>
       <ul class="nav-links">
         <li><a href="#healing">Healing</a></li>
         <li><a href="#marriage">Marriage</a></li>
@@ -19,49 +27,86 @@
         <li><a href="#renewal">Services</a></li>
       </ul>
     </nav>
-    <div class="carousel">
-      <div class="slides">
-        <!-- Slide 1 -->
-        <div class="slide active">
-          <img
-            src="https://images.unsplash.com/photo-1584027123930-c1f17b17ee1a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Healing Through the Sunnah" />
-          <div class="caption">
-            <h2>Healing Through the Sunnah</h2>
-            <p>Experience wellness inspired by the Prophetic tradition.</p>
-            <button onclick="scrollToSection('healing')">Learn More</button>
-          </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="slide">
-          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" alt="Marriage Readiness Journey" />
-          <div class="caption">
-            <h2>Marriage Readiness Journey</h2>
-            <p>Prepare for marriage with faith, clarity, and purpose.</p>
-            <button onclick="scrollToSection('marriage')">Start Journey</button>
-          </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Spiritual and Emotional Renewal" />
-          <div class="caption">
-            <h2>Spiritual & Emotional Renewal</h2>
-            <p>Reconnect with your soul and rejuvenate your spirit.</p>
-            <button onclick="scrollToSection('renewal')">Find Peace</button>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-      <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+
+
+    <div class="countSelectorSection" style="display: none">
+      <!-- <label>Choose slide count:</label> -->
+      <select id="countSelector" style="display: hidden">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
     </div>
+    <div class="autoCheck" style="display: none">
+      <!-- <label>Autoslide:</label> -->
+      <input type="checkbox" checked id="autoSlideCheck" />
+    </div>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">.</div>
+        <img src="https://images.unsplash.com/photo-1584027123930-c1f17b17ee1a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width:100%">
+        <div class="text"> <h2>Healing Through the Sunnah</h2>
+            <p>Experience wellness inspired by the Prophetic tradition.</p>
+            <button onclick="scrollToSection('healing')">Learn More</button></div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">..</div>
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" style="width:100%">
+        <div class="text">  <h2>Marriage Readiness Journey</h2><p>Prepare for marriage with faith, clarity, and purpose.</p>
+            <button onclick="scrollToSection('marriage')">Start Journey</button></div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">...</div>
+        <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width:100%">
+        <div class="text"> <h2>Spiritual & Emotional Renewal</h2> <p>Reconnect with your soul and rejuvenate your spirit.</p>
+            <button onclick="scrollToSection('renewal')">Find Peace</button></div>
+      </div>
+
+      
+
+      <a class="prev" id="prev">&#10094;</a>
+      <a class="next" id="next">&#10095;</a>
+      <div class="clear"></div>
+    </div>
+    <br>
+
+    <div style="text-align:center" id="pagination">
+
+    </div>
+
+
 
   </header>
 
   <section class="parallax">
 
-    <div class="card-container">
+     <section id="healing" class="featured-event">
+      <h2>Medina Team KSA 🇸🇦</h2> 
+      <p>Our Saudi Arabia team provides on-the-ground support throughout your Umrah journey. From airport pickup and
+          hotel check-in to guided rituals and 24/7 assistance, we’re here to make your pilgrimage comfortable,
+          meaningful, and spiritually enriching.</p>
+     
+    </section>
+
+  <section id="heaing" class="featured-event">
+      <h2>Metro Atlanta Team Georgia, USA 🇺🇸</h2> 
+      <p>Based in Atlanta, our U.S. team is dedicated to guiding pilgrims through every step of the Umrah preparation
+          process. From visa assistance and travel planning to educational sessions and personalized support, we ensure
+          a smooth and stress-free experience before departure.</p>
+   
+    </section>
+
+  
+
+  
+
+    
+
+    <!-- <div class="card-container">
       <div class="card">
         <h1>Medina Team KSA 🇸🇦</h1>
         <p>Our Saudi Arabia team provides on-the-ground support throughout your Umrah journey. From airport pickup and
@@ -74,7 +119,7 @@
           process. From visa assistance and travel planning to educational sessions and personalized support, we ensure
           a smooth and stress-free experience before departure.</p>
       </div>
-    </div>
+    </div> -->
 
   </section>
 
@@ -82,22 +127,24 @@
 
     <!-- <div class="parallax"> -->
 
-    <section id="healing" class="service-section">
-      <h2>Healing Through the Sunnah</h2>
+    <section id="healing" class="featured-event">
+      <h2>Healing Through the Sunnah</h2> 
       <p>Discover Prophetic Wellness with holistic practices based on Islamic traditions.</p>
+      <!-- <i class="fa fa-moon-o" style="font-size:78px;color:black;"></i> -->
     </section>
 
-    <section id="marriage" class="service-section">
-      <h2>Marriage Readiness Journey</h2>
+    <section id="marriage" class="featured-event">
+      <h2>Marriage Readiness Journey</h2> 
       <p>Prepare for marriage with guidance rooted in deen, psychology, and life experience.</p>
+     <!-- <i class="fa fa-heart-o" style="font-size:78px;color:black"></i> -->
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Spiritual and Emotional Renewal</h2>
       <p>Reconnect with your soul, realign your purpose, and find inner peace through faith.</p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>First Step to Faith (Revert-Focused Campaign)</h2>
       <p>Support reverts experiencing their first Umrah — covering basic beliefs, identity building, and connecting to
         the Prophet.
@@ -105,14 +152,14 @@
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Legacy of the Sahabah (Walking in Their Footsteps)</h2>
       <p>Travel spiritually in the footsteps of the Companions — courage, humility, sacrifice, and devotion.
         Ideal for: Youth, da’wah groups, students
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Spiritual Detox (Reset the Soul)</h2>
       <p>Disconnect from digital distractions, detox from the dunya, and renew your heart through simplicity, fasting,
         and mindfulness.
@@ -120,7 +167,7 @@
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Journey of Tears (Repentance & Renewal)</h2>
       <p>Focus on du’a, forgiveness, and starting over. A powerful experience for those seeking a spiritual reset and
         healing.
@@ -129,7 +176,7 @@
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Youth – “My Deen, My Identity”</h2>
       <p>Designed for Muslim teens and students, this campaign builds confidence and pride in Islam while exploring
         faith in a group setting.
@@ -137,7 +184,7 @@
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Business with Barakah (Prophetic Business Ethics)</h2>
       <p>Learn how the Prophet ﷺ led in business with trust, ethics, and intention — align your work life with your
         spiritual values.
@@ -145,7 +192,7 @@
       </p>
     </section>
 
-    <section id="renewal" class="service-section">
+    <section id="renewal" class="featured-event">
       <h2>Women of Islam (Faith, Power, and Balance)</h2>
       <p>Discover the strength, love, and legacy of women like Khadijah, Aisha, and Fatima — explore the role of Muslim
         women in faith and family.
@@ -153,16 +200,19 @@
       </p>
     </section>
 
-    <!-- </div> -->
+
 
   </main>
 
+
+
   <footer>
-    <p>&copy; 2025 Prophetic Pathways. All rights reserved.</p>
+    <p>&copy; 2025 Dawah Center for Human Development. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 
 </html>
+
 
