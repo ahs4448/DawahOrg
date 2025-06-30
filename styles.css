@@ -5,30 +5,115 @@
 }
 
 body {
+ 
   font-family: 'Segoe UI', sans-serif;
   background: #f9f7f1;
   color: #333;
   /* background-image: url("https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
 }
 
-nav {
-  background: #1b3a2b;
-  color: white;
+/* all nav stuff */
+.navbar {
+   position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* overflow: hidden; */
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
   align-items: center;
-  font-family: oswald;
+  background: #1b3a2b;
+  color: white;
+  padding: 1rem;
+  overflow: hidden;
+  /* position: relative; */
+  font-family: Oswald;
 }
+
+.logo {
+  font-size: 1.5rem;
+}
+
+img{
+    width: 33%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  margin-right: 24px;
+}
+
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    display: block;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 57px;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #1b3a2b;
+    padding-top: 4rem;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-button{
+button {
   padding: 8px;
-  background-color: #145d3d;
+  background-color: #1b3a2b;
   color: #f9f7f1;
   font-family: Oswald;
   border: 1px solid white;
@@ -51,6 +136,7 @@ button{
 .nav-links a:hover {
   color: #ffd700;
 }
+/* end nav stuff */
 
 .hero {
   background: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf') no-repeat center center/cover;
@@ -124,6 +210,7 @@ footer {
 }
 
 .slides {
+  
   display: flex;
   width: 300%;
   height: 100%;
@@ -131,6 +218,7 @@ footer {
 }
 
 .slide {
+  
   min-width: 100%;
   height: 100%;
   position: relative;
@@ -142,6 +230,7 @@ footer {
 }
 
 .slide img {
+  
   width: 35%;
   height: 100%;
   object-fit: cover;
@@ -161,7 +250,7 @@ footer {
 .caption h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  
+
 }
 
 .caption p {
@@ -187,7 +276,7 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   font-size: 2rem;
@@ -199,7 +288,7 @@ footer {
 }
 
 .carousel-btn:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-btn.prev {
@@ -213,30 +302,43 @@ footer {
 
 /* not currently in use */
 .parallax {
-/*positioning details for the text*/
+  margin-top: 80px;
+  /*positioning details for the text*/
   /* position: relative;  This allows positioning child elements if necessary */
-  background-image: url('logo2d.jpg');  /* Your background image */
-  background-size: cover;  /* Cover the entire section */
-  background-position: center;  /* Center the image */
-  height: 100vh;  /* Full viewport height */
+  background-image: url('logo2d.jpg');
+  /* Your background image */
+  background-size: cover;
+  /* Cover the entire section */
+  background-position: center;
+  /* Center the image */
+  height: 100vh;
+  /* Full viewport height */
   /* display: flex;   Use Flexbox for centering  */
-  justify-content: center;  /* Center horizontally */
-  align-items: center;  /* Center vertically */
-  text-align: center;  /* Center text */
-    padding-top: 1px;
-    background-image: url('logo2d.jpg'); /* Replace with your image URL */
-    height: 500px; /* Height of the parallax section */
-    background-attachment: fixed; /* Fixed position for parallax effect */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; /* Cover the entire section */
-    margin-bottom: 44%;
-} 
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  text-align: center;
+  /* Center text */
+  padding-top: 1px;
+  background-image: url('logo2d.jpg');
+  /* Replace with your image URL */
+  height: 500px;
+  /* Height of the parallax section */
+  background-attachment: fixed;
+  /* Fixed position for parallax effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Cover the entire section */
+  margin-bottom: 44%;
+}
 
 
 .card-container {
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: column;
+  /* Stack vertically */
   gap: 20px;
 }
 
@@ -245,40 +347,56 @@ footer {
   background: white;
   padding: 20px;
   width: 300px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
 /* extra */
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0
+}
+
 .mySlides {
   display: none;
   float: left;
   position: relative;
-  margin: 1%;
+  margin: 0%;
+  width: 100% !important;
 }
-.countSelectorSection,.autoCheck{
+
+.countSelectorSection,
+.autoCheck {
   margin: 1rem;
   display: inline-block;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
   margin: 0;
   padding: 0;
   cursor: pointer;
 }
-img {vertical-align: middle;}
+
+img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
+
   max-width: 10000px;
   position: relative;
-  margin: auto;
+  margin-top: 78px;
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -292,7 +410,8 @@ img {vertical-align: middle;}
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
-.prev{
+
+.prev {
   left: 1%;
 }
 
@@ -303,8 +422,9 @@ img {vertical-align: middle;}
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(255,255,255,0.5);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 111, 33, 0.5);
 }
 
 /* Caption text */
@@ -332,18 +452,20 @@ img {vertical-align: middle;}
 .dot {
   cursor: pointer;
   height: 15px;
-  width: 15px;
+  width: 45px;
   margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
+  background-color: #1b3a2b;
+  border-radius: 0%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.active,
+.dot:hover {
+  background-color: #00a20b;
 }
-.clear{
+
+.clear {
   clear: both;
 }
 
@@ -356,32 +478,56 @@ img {vertical-align: middle;}
 }
 
 /* all the cards hold these styles */
-.featured-event{
-    background-image: linear-gradient(white, rgb(250, 240, 220));
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: "Afacad Flux", sans-serif !important; 
-    /* background: #fff; */
-    padding: 20px;
-    margin-bottom: 20px;
-    margin :20px;
-    border-radius: 5px;
-    border: 1px solid #1b3a2b;
+.featured-event {
+  background-image: linear-gradient(white, rgb(250, 240, 220));
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Afacad Flux", sans-serif !important;
+  /* background: #fff; */
+  padding: 20px;
+  margin-bottom: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  border: 4px solid #1b3a2b;
+  /* border-top-left-radius: 3rem;
+  border-bottom-right-radius: 3rem; */
+
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px};
 
-  .parallax{ margin-bottom: 44%;}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px
+  }
+
+  ;
+
+  .parallax {
+    margin-bottom: 44%;
+  }
 }
+
+
